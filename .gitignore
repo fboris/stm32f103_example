@@ -1,2 +1,8 @@
 *.elf
 *.bin
+.tags*                                                                                                                                     
+*.o
+cscope*
+*.out
+*.swp
+
