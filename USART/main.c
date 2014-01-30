@@ -17,7 +17,7 @@ void init_led()
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
-void gpio_toogle(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+void gpio_toggle(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
 	GPIOx->ODR ^= GPIO_Pin;
 }
@@ -94,8 +94,8 @@ int main(void)
 
 	while (1) {
 		send_string(str);
-		gpio_toogle(GPIOA, GPIO_Pin_0);
-		gpio_toogle(GPIOA, GPIO_Pin_1);
+		gpio_toggle(GPIOA, GPIO_Pin_0);
+		gpio_toggle(GPIOA, GPIO_Pin_1);
 		delay(500000);
 
 	}
