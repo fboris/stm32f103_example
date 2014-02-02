@@ -1,0 +1,56 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+BIN_IMAGE	Makefile	/^BIN_IMAGE=stm32_bin_image.bin$/;"	m
+CC	Makefile	/^CC=arm-none-eabi-gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-g -mlittle-endian -mthumb$/;"	m
+EXECUTABLE	Makefile	/^EXECUTABLE=stm32_executable.elf$/;"	m
+OBJCOPY	Makefile	/^OBJCOPY=arm-none-eabi-objcopy$/;"	m
+SRC	Makefile	/^SRC=.\/system_stm32f10x.c$/;"	m
+STARTUP	Makefile	/^STARTUP=..\/lib\/CMSIS\/CM3\/DeviceSupport\/ST\/STM32F10x\/startup\/gcc_ride7\/startup_stm32f10x_md.s$/;"	m
+STARTUP_OBJ	Makefile	/^STARTUP_OBJ = startup_stm32f10x_md.o$/;"	m
+ST_LIB	Makefile	/^ST_LIB=..\/lib\/STM32F10x_StdPeriph_Driver$/;"	m
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+ADC1_DR_Address	main.c	3;"	d	file:
+ADCConvertedValue	main.c	/^uint32_t ADCConvertedValue;$/;"	v
+adc_init	main.c	/^void adc_init()$/;"	f
+delay	main.c	/^void delay(uint32_t delay_count )$/;"	f
+gpio_toggle	main.c	/^void gpio_toggle(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)$/;"	f
+init_led	main.c	/^void init_led()$/;"	f
+main	main.c	/^int main(void)$/;"	f
+__STM32F10x_CONF_H	stm32f10x_conf.h	24;"	d
+assert_param	stm32f10x_conf.h	68;"	d
+assert_param	stm32f10x_conf.h	72;"	d
+BusFault_Handler	stm32f10x_it.c	/^void BusFault_Handler(void)$/;"	f
+DebugMon_Handler	stm32f10x_it.c	/^void DebugMon_Handler(void)$/;"	f
+HardFault_Handler	stm32f10x_it.c	/^void HardFault_Handler(void)$/;"	f
+MemManage_Handler	stm32f10x_it.c	/^void MemManage_Handler(void)$/;"	f
+NMI_Handler	stm32f10x_it.c	/^void NMI_Handler(void)$/;"	f
+PendSV_Handler	stm32f10x_it.c	/^void PendSV_Handler(void)$/;"	f
+SVC_Handler	stm32f10x_it.c	/^void SVC_Handler(void)$/;"	f
+SysTick_Handler	stm32f10x_it.c	/^void SysTick_Handler(void)$/;"	f
+UsageFault_Handler	stm32f10x_it.c	/^void UsageFault_Handler(void)$/;"	f
+__STM32F10x_IT_H	stm32f10x_it.h	24;"	d
+AHBPrescTable	system_stm32f10x.c	/^__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};$/;"	v
+SYSCLK_FREQ_24MHz	system_stm32f10x.c	108;"	d	file:
+SYSCLK_FREQ_72MHz	system_stm32f10x.c	115;"	d	file:
+SetSysClock	system_stm32f10x.c	/^static void SetSysClock(void)$/;"	f	file:
+SetSysClockTo24	system_stm32f10x.c	/^static void SetSysClockTo24(void)$/;"	f	file:
+SetSysClockTo36	system_stm32f10x.c	/^static void SetSysClockTo36(void)$/;"	f	file:
+SetSysClockTo48	system_stm32f10x.c	/^static void SetSysClockTo48(void)$/;"	f	file:
+SetSysClockTo56	system_stm32f10x.c	/^static void SetSysClockTo56(void)$/;"	f	file:
+SetSysClockTo72	system_stm32f10x.c	/^static void SetSysClockTo72(void)$/;"	f	file:
+SetSysClockToHSE	system_stm32f10x.c	/^static void SetSysClockToHSE(void)$/;"	f	file:
+SystemCoreClock	system_stm32f10x.c	/^  uint32_t SystemCoreClock         = HSI_VALUE;        \/*!< System Clock Frequency (Core Clock) *\/$/;"	v
+SystemCoreClock	system_stm32f10x.c	/^  uint32_t SystemCoreClock         = SYSCLK_FREQ_24MHz;        \/*!< System Clock Frequency (Core Clock) *\/$/;"	v
+SystemCoreClock	system_stm32f10x.c	/^  uint32_t SystemCoreClock         = SYSCLK_FREQ_36MHz;        \/*!< System Clock Frequency (Core Clock) *\/$/;"	v
+SystemCoreClock	system_stm32f10x.c	/^  uint32_t SystemCoreClock         = SYSCLK_FREQ_48MHz;        \/*!< System Clock Frequency (Core Clock) *\/$/;"	v
+SystemCoreClock	system_stm32f10x.c	/^  uint32_t SystemCoreClock         = SYSCLK_FREQ_56MHz;        \/*!< System Clock Frequency (Core Clock) *\/$/;"	v
+SystemCoreClock	system_stm32f10x.c	/^  uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz;        \/*!< System Clock Frequency (Core Clock) *\/$/;"	v
+SystemCoreClock	system_stm32f10x.c	/^  uint32_t SystemCoreClock         = SYSCLK_FREQ_HSE;        \/*!< System Clock Frequency (Core Clock) *\/$/;"	v
+SystemCoreClockUpdate	system_stm32f10x.c	/^void SystemCoreClockUpdate (void)$/;"	f
+SystemInit	system_stm32f10x.c	/^void SystemInit (void)$/;"	f
+SystemInit_ExtMemCtl	system_stm32f10x.c	/^void SystemInit_ExtMemCtl(void) $/;"	f
+VECT_TAB_OFFSET	system_stm32f10x.c	128;"	d	file:
