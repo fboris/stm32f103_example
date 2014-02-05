@@ -76,6 +76,8 @@ clean:
 #Make flash
 flash:
 	st-flash write $(BIN_IMAGE) 0x8000000
+gdb:
+	arm-none-eabi-gdbtui -x gdb_init.gdb
 
 #======================================================================
 .PHONY:all clean flash
