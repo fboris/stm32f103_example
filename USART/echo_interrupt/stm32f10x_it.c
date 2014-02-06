@@ -48,7 +48,7 @@ void USART1_IRQHandler(void)
     char b;
     if(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == SET) {
 
-          b =  (USART_ReceiveData(USART1) & 0x7F);
+          b =  USART_ReceiveData(USART1);
           send_byte(b);
     }
 }
