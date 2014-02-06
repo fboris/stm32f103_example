@@ -76,8 +76,9 @@ clean:
 #Make flash
 flash:
 	st-flash write $(BIN_IMAGE) 0x8000000
+openocd:
+	openocd -f "../../commom/openocd.cfg"
 gdb:
-	arm-none-eabi-gdbtui -x gdb_init.gdb
-
+	arm-none-eabi-gdbtui -x ../../commom/gdb_init.gdb
 #======================================================================
 .PHONY:all clean flash

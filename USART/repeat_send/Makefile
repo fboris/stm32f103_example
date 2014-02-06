@@ -24,14 +24,14 @@ CFLAGS+=-Wl,-T,stm32_flash.ld
 #Libraries
 
 #Stm32 libraries
-ST_LIB=../lib/STM32F10x_StdPeriph_Driver
+ST_LIB=../../lib/STM32F10x_StdPeriph_Driver
 
 #CMSIS libraries
-CFLAGS+=-I../lib/CMSIS/CM3/CoreSupport
+CFLAGS+=-I../../lib/CMSIS/CM3/CoreSupport
 
 #StdPeriph includes
 CFLAGS+=-I$(ST_LIB)/inc
-CFLAGS+=-I../lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/
+CFLAGS+=-I../../lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/
 #======================================================================#
 #setup system clock
 SRC=./system_stm32f10x.c
@@ -46,7 +46,7 @@ SRC+=./main.c
 
 #======================================================================#
 #STM32 startup file
-STARTUP=../lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s
+STARTUP=../../lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s
 
 
 #======================================================================#
