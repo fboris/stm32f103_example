@@ -24,11 +24,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
 
-uint8_t EXTI4_ISRISING = 0;
-uint8_t EXTI5_ISRISING = 0;
-uint8_t EXTI10_ISRISING = 0;
-uint8_t EXTI11_ISRISING = 0;
-uint8_t EXTI12_ISRISING = 0;
+uint8_t EXTI4_IsFalling = 0;
+uint8_t EXTI5_IsFalling = 0;
+uint8_t EXTI10_IsFalling = 0;
+uint8_t EXTI11_IsFalling = 0;
+uint8_t EXTI12_IsFalling = 0;
 /**
   * @brief  This function handles NMI exception.
   * @param  None
@@ -133,7 +133,7 @@ void EXTI4_IRQHandler()
 {
   if(EXTI_GetITStatus(EXTI_Line4) != RESET)
   {
-    EXTI4_ISRISING = 1;
+    EXTI4_IsFalling = 1;
     /* Clear the  EXTI line 0 pending bit */
     EXTI_ClearITPendingBit(EXTI_Line4);
   }
@@ -144,7 +144,7 @@ void EXTI9_5_IRQHandler()
 {
   if(EXTI_GetITStatus(EXTI_Line5) != RESET)
   {
-    printf("EnterEXTI5 interrupt!");
+    EXTI5_IsFalling = 1;
     /* Clear the  EXTI line 0 pending bit */
     EXTI_ClearITPendingBit(EXTI_Line5);
   }
@@ -155,19 +155,19 @@ void EXTI15_10_IRQHandler()
 {
   if(EXTI_GetITStatus(EXTI_Line10) != RESET)
   {
-    printf("EnterEXTI10 interrupt!");
+    EXTI10_IsFalling = 1;
     /* Clear the  EXTI line 0 pending bit */
     EXTI_ClearITPendingBit(EXTI_Line10);
 
   } else   if(EXTI_GetITStatus(EXTI_Line11) != RESET)  {
 
-    printf("EnterEXTI11 interrupt!");
+    EXTI11_IsFalling = 1;
     /* Clear the  EXTI line 0 pending bit */
     EXTI_ClearITPendingBit(EXTI_Line11);
 
   } else if(EXTI_GetITStatus(EXTI_Line12) != RESET) {
 
-    printf("EnterEXTI12 interrupt!");
+    EXTI12_IsFalling = 1;
     /* Clear the  EXTI line 0 pending bit */
     EXTI_ClearITPendingBit(EXTI_Line12);
 

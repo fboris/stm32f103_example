@@ -1,6 +1,10 @@
 #include "stm32f10x.h"
 #include "stm32f10x_conf.h"
-
+extern uint8_t EXTI4_IsFalling;
+extern uint8_t EXTI5_IsFalling;
+extern uint8_t EXTI10_IsFalling;
+extern uint8_t EXTI11_IsFalling;
+extern uint8_t EXTI12_IsFalling;
 void delay(uint32_t delay_count)
 {
 	while (delay_count) delay_count--;
@@ -82,7 +86,30 @@ int main(void)
 
 		gpio_toggle(GPIOA, GPIO_Pin_0);
 		gpio_toggle(GPIOA, GPIO_Pin_1);
-				
+		if ( EXTI4_IsFalling == 1 ){
+
+			puts("PC4 was reset!\r\n");
+			EXTI4_IsFalling = 0;
+
+		} else if ( EXTI5_IsFalling == 1){
+			puts("PC5 was reset!\r\n");
+			EXTI5_IsFalling = 0;
+
+		} else if ( EXTI10_IsFalling == 1){
+
+			puts("PC10 was reset!\r\n");
+			EXTI10_IsFalling = 0;	
+
+		} else if ( EXTI11_IsFalling == 1){
+
+			puts("PC11 was reset!\r\n");
+			EXTI11_IsFalling = 0;
+
+		} else if ( EXTI12_IsFalling == 1){
+
+			puts("PC12 was reset!\r\n");
+			EXTI12_IsFalling = 0;
+		}
 		delay(5000000);
 
 	}
