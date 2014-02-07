@@ -1,6 +1,8 @@
 *.elf
 *.bin
-.tags*                                                                                                                                     
+.tags
+.tags_sorted_by_file
+                                                                                                                                  
 *.o
 cscope*
 *.out
