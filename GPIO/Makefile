@@ -10,7 +10,7 @@ OBJCOPY=arm-none-eabi-objcopy
 
 #======================================================================#
 #Flags
-CFLAGS=-g -mlittle-endian -mthumb
+CFLAGS=-g -mlittle-endian -mthumb -nostdlib -ffreestanding
 CFLAGS+=-mcpu=cortex-m3
 CFLAGS+=-D USE_STDPERIPH_DRIVER
 CFLAGS+=-I./

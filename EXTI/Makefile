@@ -1,4 +1,5 @@
-#====================================================================#
+#
+#===================================================================#
 #Output files
 EXECUTABLE=stm32_executable.elf
 BIN_IMAGE=stm32_bin_image.bin
@@ -10,11 +11,11 @@ OBJCOPY=arm-none-eabi-objcopy
 
 #======================================================================#
 #Flags
-CFLAGS=-g -mlittle-endian -mthumb
+CFLAGS=-g -mlittle-endian -mthumb -ffreestanding -nostdlib
 CFLAGS+=-mcpu=cortex-m3
 CFLAGS+=-D USE_STDPERIPH_DRIVER
 CFLAGS+=-I./
-CFLAGS+=-D STM32F10X_MD
+CFLAGS+=-D STM32F10X_HD
 
 
 #stm32-flash
