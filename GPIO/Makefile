@@ -14,7 +14,7 @@ CFLAGS=-g -mlittle-endian -mthumb -nostdlib -ffreestanding
 CFLAGS+=-mcpu=cortex-m3
 CFLAGS+=-D USE_STDPERIPH_DRIVER
 CFLAGS+=-I./
-CFLAGS+=-D STM32F10X_MD
+CFLAGS+=-D STM32F10X_HD
 
 
 #stm32-flash
@@ -45,7 +45,7 @@ SRC+=./main.c
 
 #======================================================================#
 #STM32 startup file
-STARTUP=../lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_md.s
+STARTUP=../lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/gcc_ride7/startup_stm32f10x_hd.s
 
 
 #======================================================================#
@@ -57,7 +57,7 @@ all:$(BIN_IMAGE)
 $(BIN_IMAGE):$(EXECUTABLE)
 	$(OBJCOPY) -O binary $^ $@
 
-STARTUP_OBJ = startup_stm32f10x_md.o
+STARTUP_OBJ = startup_stm32f10x_hd.o
 
 $(STARTUP_OBJ): $(STARTUP) 
 	$(CC) $(CFLAGS) $^ -c $(STARTUP)

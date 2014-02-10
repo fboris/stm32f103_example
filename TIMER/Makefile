@@ -60,7 +60,7 @@ all:$(BIN_IMAGE)
 $(BIN_IMAGE):$(EXECUTABLE)
 	$(OBJCOPY) -O binary $^ $@
 
-STARTUP_OBJ = startup_stm32f10x_md.o
+STARTUP_OBJ = startup_stm32f10x_hd.o
 
 $(STARTUP_OBJ): $(STARTUP) 
 	$(CC) $(CFLAGS) $^ -c $(STARTUP)
