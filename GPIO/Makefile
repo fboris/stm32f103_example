@@ -75,6 +75,6 @@ flash:
 openocd:
 	openocd -f "../commom/openocd.cfg"
 gdb:
-	arm-none-eabi-gdbtui -x ../commom/gdb_init.gdb
+	arm-none-eabi-gdb -x ../commom/gdb_init.gdb
 #======================================================================
 .PHONY:all clean flash

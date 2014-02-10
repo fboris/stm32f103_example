@@ -83,7 +83,7 @@ gdb_server:
 	st-flash --reset write $(EXECUTABLE) 0x8000000 && \
 	st-util  
 gdb:	
-	arm-none-eabi-gdbtui -x gdb_init.gdb 
+	arm-none-eabi-gdb -x gdb_init.gdb 
 
 #======================================================================
 .PHONY:all clean flash gdb_server gdb
