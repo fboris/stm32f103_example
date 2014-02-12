@@ -11,7 +11,7 @@ OBJCOPY=arm-none-eabi-objcopy
 
 #======================================================================#
 #Flags
-CFLAGS=-g -mlittle-endian -mthumb -ffreestanding -nostdlib
+CFLAGS=-Wall -g -mlittle-endian -mthumb -ffreestanding -nostdlib
 CFLAGS+=-mcpu=cortex-m3
 CFLAGS+=-D USE_STDPERIPH_DRIVER
 CFLAGS+=-I./
@@ -78,6 +78,9 @@ clean:
 #Make flash
 flash:
 	st-flash write $(BIN_IMAGE) 0x8000000
-
+gdb:
+	arm-none-eabi-gdb -x ../commom/gdb_init.gdb
+gdbtui:
+	arm-none-eabi-gdb -tui -x ../commom/gdb_init.gdb
 #======================================================================
 .PHONY:all clean flash

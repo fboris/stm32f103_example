@@ -10,7 +10,7 @@ OBJCOPY=arm-none-eabi-objcopy
 
 #======================================================================#
 #Flags
-CFLAGS=-g -mlittle-endian -mthumb
+CFLAGS=-Wall -g -mlittle-endian -mthumb
 CFLAGS+=-mcpu=cortex-m3 -ffreestanding -nostdlib -Wall
 CFLAGS+=-D USE_STDPERIPH_DRIVER
 CFLAGS+=-I./
@@ -79,6 +79,8 @@ flash:
 openocd:
 	openocd -f "../../commom/openocd.cfg"
 gdb:
-	arm-none-eabi-gdb -x ../../commom/gdb_init.gdb
+	arm-none-eabi-gdb -x ../commom/gdb_init.gdb
+gdbtui:
+	arm-none-eabi-gdb -tui -x ../commom/gdb_init.gdb
 #======================================================================
 .PHONY:all clean flash
