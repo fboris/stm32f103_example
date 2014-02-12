@@ -1,8 +1,8 @@
 #include "stm32f10x.h"
 #include "stm32f10x_conf.h"
 
-uint16_t CCR3_Val = 2500;
-uint16_t CCR4_Val = 500;
+uint16_t CCR3_Val = 10;
+uint16_t CCR4_Val = 20;
 uint16_t PrescalerValue = 0;
 TIM_OCInitTypeDef  TIM_OCInitStructure;
 void delay(uint32_t delay_count)
@@ -33,7 +33,7 @@ void init_tim4_pwm()
   	
 	/* Time base configuration */
 	TIM_TimeBaseStructure.TIM_Period = 7200 - 1;
-	TIM_TimeBaseStructure.TIM_Prescaler = 200 -1;
+	TIM_TimeBaseStructure.TIM_Prescaler = 20 -1;
 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
@@ -68,17 +68,21 @@ int main(void)
 	init_tim4_pwm();
 	while (1) {
 
-		CCR3_Val = CCR3_Val +1000;
-		TIM_OCInitStructure.TIM_Pulse = CCR3_Val;
-		 TIM_OC3PreloadConfig(TIM4, TIM_OCPreload_Enable);
-		gpio_toggle(GPIOA,GPIO_Pin_0);
-		gpio_toggle(GPIOA,GPIO_Pin_1);
-		delay(500000);
+		CCR3_Val = CCR3_Val +10l;
+		CCR4_Val = CCR4_Val +101;
+		TIM4->CCR3 = CCR3_Val;
+		TIM4->CCR4 = CCR4_Val;
+		if ( (CCR3_Val>7000) || (CCR4_Val > 7000) ){
 
-		CCR3_Val = CCR3_Val -1000;
-		TIM_OCInitStructure.TIM_Pulse = CCR3_Val;
-		 TIM_OC3PreloadConfig(TIM4, TIM_OCPreload_Enable);
-;
+			CCR3_Val = 20;
+			CCR4_Val = 20;
+
+		} else if ( (CCR3_Val<20) || (CCR4_Val <20) ){
+
+			CCR3_Val = 20;
+			CCR4_Val = 20;
+
+		}
 		delay(500000);
 
 
