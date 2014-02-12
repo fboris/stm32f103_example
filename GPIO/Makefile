@@ -42,7 +42,6 @@ SRC+=$(ST_LIB)/src/misc.c \
 
 #Major programs
 SRC+=./main.c \
-	./test.c
 
 #======================================================================#
 #STM32 startup file
