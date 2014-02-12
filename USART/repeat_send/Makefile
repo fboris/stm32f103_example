@@ -71,6 +71,8 @@ clean:
 	rm -rf $(EXECUTABLE)
 	rm -rf $(BIN_IMAGE)
 #Make flash
+flash:
+	st-flash write $(BIN_IMAGE) 0x8000000
 gdb:
 	arm-none-eabi-gdb -x ../commom/gdb_init.gdb
 gdbtui:
