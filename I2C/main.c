@@ -3,7 +3,7 @@
 #include "stm32f10x_conf.h"
 #include "MPU6050.h"
 #include "usart.h"
-#include <stdio>
+#include <stdio.h>
 void delay(uint32_t delay_count)
 {
 	while (delay_count) delay_count--;
@@ -24,8 +24,7 @@ void gpio_toggle(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
 	GPIOx->ODR ^= GPIO_Pin;
 }
-void _exit(int status)
-{}
+
 int main(void)
 {
 	int16_t buff[6];
@@ -45,9 +44,9 @@ int main(void)
 		//puts("running now\r\n");
 		MPU6050_GetRawAccelGyro(buff);
 		for ( int i = 0; i<3; i++)
-			acc[i] = (int16_t)buff[i]/16384.0;
+			acc[i] = (buff[i]/16384.0);
 		for ( int i = 0; i<3; i++)
-			gyro[i] = (int16_t)buff[i+2]/131.0;
+			gyro[i] = (buff[i+2]/131.0);
 		printf("acc_x,%f,acc_y,%f,acc_z,%f,gyro_x,%f,gyro_y,%f,gyro_z,%f\r\n",
 			acc[0], acc[1], acc[2],
 			gyro[0], gyro[1], gyro[2]);

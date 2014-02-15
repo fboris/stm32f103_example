@@ -54,7 +54,14 @@ void init_usart1()
 	USART_Cmd(USART1, ENABLE);
 
 }
+void send_byte(uint8_t b)
+{
+  /* Send one byte */
+  USART_SendData(USART1, b);
 
+  /* Loop until USART2 DR register is empty */
+  while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+}
 void retarget_init()
 {
   // Initialize UART
