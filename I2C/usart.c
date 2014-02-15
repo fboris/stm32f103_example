@@ -55,83 +55,39 @@ void init_usart1()
 
 }
 
-char getch_base(void)
+void retarget_init()
 {
-
+  // Initialize UART
 }
 
-void putch_base(char str)
+int _write (int fd, char *ptr, int len)
 {
-	USART_SendData(USART1, (uint16_t)str);
-	while (USART_GetFlagStatus(USART1,USART_FLAG_TC) == RESET);
-}
-
-/* Serial read/write callback functions */
-serial_ops serial = {
-    .getch = getch_base,
-    .putch = putch_base,
-};
-
-
-
-int puts(const char* msg)
-{   
-    for(; *msg; msg++)
-    serial.putch(*msg);
-
-    return 1;
-}
-
-
- 
-int printf(const char *format, ...)
-{
-  char str[128];
-  va_list para;
-  va_start(para, format);
-  int curr_pos = 0;
-  char ch[] = {'0', '\0'};
-  char integer[11];
-  str[0] = '\0';
-
-  while (format[curr_pos] != '\0') {
-    if (format[curr_pos] != '%') {
-      ch[0] = format[curr_pos];
-      strcat(str, ch);
-
-    } else {
-      switch (format[++curr_pos]) {
-      case 's':
-        strcat(str, va_arg(para, char *));
-        break;
-
-      case 'c':
-        ch[0] = (char)va_arg(para, int);
-        strcat(str, ch);
-        break;
-
-      case 'i':
-      case 'f':
-        strcat(str, ftoa(va_arg(para, double) ) );
-        break;
-
-      case 'd':
-        strcat(str,  itoa(va_arg(para, int), integer) );
-        break;
-
-      case 'u':
-        strcat(str, itoa(va_arg(para, unsigned), integer));
-        break;
-
-      default:
-        break;
-      }
-    }
-
-    curr_pos++;
+  /* Write "len" of char from "ptr" to file id "fd"
+   * Return number of char written.
+   * Need implementing with UART here. */
+  
+  for ( int i = 0; i<len ;i++)
+  {
+    send_byte(*ptr);
+    ptr++;
   }
+  return len;
+}
 
-  va_end(para);
-  puts(str);
-  return 1;
+int _read (int fd, char *ptr, int len)
+{
+  /* Read "len" of char to "ptr" from file id "fd"
+   * Return number of char read.
+   * Need implementing with UART here. */
+  return len;
+}
+
+void _ttywrch(int ch) {
+  /* Write one char "ch" to the default console
+   * Need implementing with UART here. */
+  /* Send one byte */
+  USART_SendData(USART1, ch);
+
+  /* Loop until USART2 DR register is empty */
+  while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
 }

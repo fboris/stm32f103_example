@@ -3,6 +3,7 @@
 #include "stm32f10x_conf.h"
 #include "MPU6050.h"
 #include "usart.h"
+#include <stdio>
 void delay(uint32_t delay_count)
 {
 	while (delay_count) delay_count--;

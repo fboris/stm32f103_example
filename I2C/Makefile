@@ -10,15 +10,20 @@ OBJCOPY=arm-none-eabi-objcopy
 
 #======================================================================#
 #Flags
-CFLAGS=-Wall -g -mlittle-endian -mthumb
-CFLAGS+=-mcpu=cortex-m3 -mfloat-abi=soft -msoft-float
+CFLAGS=-Wall -g -mlittle-endian -mthumb -std=c99
+CFLAGS+=-mcpu=cortex-m3
 CFLAGS+=-D USE_STDPERIPH_DRIVER
+CFLAGS+=-I./
 CFLAGS+=-D STM32F10X_HD
-CFLAGS+=-std=c99
-
-
+#use newlib nano
+CFLAGS+=--specs=nano.specs -u _printf_float  
+#no semi-host
+CFLAGS+=--specs=nosys.specs
+#soft floating point
+CFLAGS+=-mfloat-abi=soft
 #stm32-flash
 CFLAGS+=-Wl,-T,stm32_flash.ld
+
 
 #======================================================================#
 CFLAGS+=-I./
@@ -46,9 +51,8 @@ SRC+=$(ST_LIB)/src/misc.c \
 SRC+=./MPU6050_lib/MPU6050.c
 #Major programs
 SRC+=./main.c \
-	./string.c \
 	./usart.c \
-	./stdlib.c
+
 
 #======================================================================#
 #STM32 startup file
