@@ -10,8 +10,8 @@ OBJCOPY=arm-none-eabi-objcopy
 
 #======================================================================#
 #Flags
-CFLAGS=-Wall -g -mlittle-endian -mthumb -nostdlib -ffreestanding
-CFLAGS+=-mcpu=cortex-m3
+CFLAGS=-Wall -g -mlittle-endian -mthumb
+CFLAGS+=-mcpu=cortex-m3 -mfloat-abi=soft -msoft-float
 CFLAGS+=-D USE_STDPERIPH_DRIVER
 CFLAGS+=-D STM32F10X_HD
 CFLAGS+=-std=c99
@@ -40,11 +40,15 @@ SRC=./system_stm32f10x.c
 SRC+=$(ST_LIB)/src/misc.c \
 	$(ST_LIB)/src/stm32f10x_rcc.c \
 	$(ST_LIB)/src/stm32f10x_gpio.c \
-	$(ST_LIB)/src/stm32f10x_i2c.c
+	$(ST_LIB)/src/stm32f10x_i2c.c \
+	$(ST_LIB)/src/stm32f10x_usart.c
 #MPU6050 Lib
 SRC+=./MPU6050_lib/MPU6050.c
 #Major programs
 SRC+=./main.c \
+	./string.c \
+	./usart.c \
+	./stdlib.c
 
 #======================================================================#
 #STM32 startup file
