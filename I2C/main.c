@@ -46,7 +46,7 @@ int main(void)
 		for ( int i = 0; i<3; i++)
 			acc[i] = (buff[i]/16384.0);
 		for ( int i = 0; i<3; i++)
-			gyro[i] = (buff[i+2]/131.0);
+			gyro[i] = (buff[i+3]/131.0);
 		printf("acc_x,%f,acc_y,%f,acc_z,%f,gyro_x,%f,gyro_y,%f,gyro_z,%f\r\n",
 			acc[0], acc[1], acc[2],
 			gyro[0], gyro[1], gyro[2]);
